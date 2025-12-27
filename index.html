@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Mental Health Companion</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCI0BNnQUW69t3yPMouGDCD_ySdNHrGFJ8",
+      authDomain: "mental-health-chatbot-f05c3.firebaseapp.com",
+      projectId: "mental-health-chatbot-f05c3",
+      storageBucket: "mental-health-chatbot-f05c3.firebasestorage.app",
+      messagingSenderId: "418091528048",
+      appId: "1:418091528048:web:6f0f485be501b126e729b5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.auth = getAuth(app);
+    window.db = getFirestore(app);
+  </script>
+
+  <script src="app.js" type="module"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Campus Mental Health Companion</h1>
+  <p class="tagline">Reflect • Track • Heal 🌱</p>
+
+  <!-- LOGIN -->
+  <div id="loginDiv" class="card">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button class="primary" onclick="login()">Login</button>
+    <button class="secondary" onclick="signup()">Sign Up</button>
+    <p id="loginStatus"></p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="card" style="display:none;">
+    <h3>How are you feeling today?</h3>
+
+    <select id="moodSelect">
+      <option value="">Select mood</option>
+      <option value="1">Very Low</option>
+      <option value="2">Low</option>
+      <option value="3">Okay</option>
+      <option value="4">Good</option>
+      <option value="5">Very Good</option>
+    </select>
+
+    <button class="primary" onclick="saveMood()">Save Mood</button>
+    <p id="status"></p>
+
+    <h3>Your Reflection</h3>
+    <textarea id="reflectionText" placeholder="Write your thoughts..."></textarea>
+    <button class="primary" onclick="saveReflection()">Save Reflection</button>
+
+    <h3>Mood Progress</h3>
+    <canvas id="moodChart"></canvas>
+
+    <h3>Reflection Library</h3>
+    <div id="library"></div>
+
+    <p class="hint">💬 Chat using the bubble below anytime</p>
+  </div>
+
+</div>
+
+<!-- Dialogflow -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  id="dfMessenger"
+  intent="WELCOME"
+  chat-title="CampusMentalHealthBot"
+  agent-id="55be6804-fc2c-4c5b-8f86-c543287f6b36"
+  language-code="en"
+  style="display:none;">
+</df-messenger>
+
+</body>
+</html>

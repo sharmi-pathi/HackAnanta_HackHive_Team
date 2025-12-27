@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #c3cfe2, #e2ebf0);
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+}
+
+.card {
+  background: linear-gradient(135deg, #ffffff, #f4f7ff);
+  max-width: 420px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+input, select, textarea {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  height: 80px;
+}
+
+button {
+  width: 95%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.secondary {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+#library {
+  margin-top: 15px;
+}
+
+.library-item {
+  background: #eef1ff;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  text-align: left;
+}
+
+#status, #loginStatus {
+  color: #2e7d32;
+}
+
+.hint {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
